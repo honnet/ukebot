@@ -19,19 +19,39 @@ void setup()
     for (int i=0; i<N; i++)               // all servos are not exactly the same
         string[i].init(PINS[i], MIDL[i]); // so we calibrate them
     pinMode(led, OUTPUT);
+    Serial.begin(115200);
 }
 
 void loop()
 {
     const int DELAY = 140;
+    static bool autoMode = false;
+    int stringNum = 0;
 
-    for (int i=0; i<N; i++)
-    {
-        string[i].strum();            // strum all strings almost in the same time
-        delay(10);                    // but add a little delay to sound better
+    if (Serial.available() > 0) {
+
+        stringNum = int(Serial.read());
+
+        if (stringNum >= 1 && stringNum <= 4) { // control mode
+            string[stringNum].strum();
+            delay(DELAY);                       // TODO: non blocking func in doubleStrum(delay)
+            string[stringNum].strum();
+            delay(DELAY);
+        } else {
+            autoMode = (stringNum == 0);        // set auto mode ?
+        }
+
+    } else if (autoMode) {
+
+        for (int i=0; i<N; i++)
+        {
+            string[i].strum();            // strum all strings almost in the same time
+            delay(10);                    // but add a little delay to sound better
+        }
+        delay(DELAY);
     }
 
+    delay(20);
     digitalWrite(led, b = !b);
-    delay(DELAY);
 }
 
