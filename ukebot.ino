@@ -2,8 +2,8 @@
 #include "ukeString.h"
 
 const int N = 4;                      // number of strings
-const int PINS[] = {9,  10, 14, 15};  // PWM pins on teensy
-const int MIDL[] = {105, 70, 90, 60}; // middle of rotation
+const int PINS[] = {9,   10, 14, 15}; // PWM pins on teensy
+const int MIDL[] = {110, 70, 85, 70}; // middle of rotation
 UkeString string[N];
 
 const int led = 11;
@@ -18,7 +18,7 @@ void setup()
 
 void loop()
 {
-    const int DELAY = 150;
+    const int DELAY = 140;
 
     for (int i=0; i<N; i++)
     {
