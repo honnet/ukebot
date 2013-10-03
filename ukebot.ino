@@ -1,9 +1,14 @@
 #include <Servo.h>
 #include "ukeString.h"
 
-const int N = 4;                      // number of strings
-const int PINS[] = {9,   10, 14, 15}; // PWM pins on teensy
-const int MIDL[] = {110, 70, 85, 70}; // middle of rotation
+#ifdef CORE_TEENSY
+    const int PINS[] = {9, 10, 14, 15}; // PWM pins on teensy
+#else
+    const int PINS[] = {5,  6,  9, 10}; // PWM pins on arduino
+#endif
+
+const int MIDL[] = {110, 70, 85, 70};   // middle of rotation
+const int N = 4;                        // number of strings
 UkeString string[N];
 
 const int led = 11;
