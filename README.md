@@ -1,6 +1,9 @@
 Welcome!
 ========
 
+![The Punkulele being evelopped](http://farm6.staticflickr.com/5495/10047609503_3742a2dd3d.jpg)
+
+
 What?
 -----
 
@@ -33,5 +36,5 @@ Who?
 * The world famous hacker called Merlin AKA Alex (@glowascii).
 * Myself, interhactively yours, Drix.
 
-![The World Famous Punkulele](http://i.picresize.com/images/2013/09/29/71jKL.jpg)
 
+![The Punkulele team](http://farm3.staticflickr.com/2820/10047589226_0196811919.jpg)
